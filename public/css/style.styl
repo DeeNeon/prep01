@@ -1,0 +1,136 @@
+@import '../components/normalize.css/normalize.css'
+
+html,
+body
+  height 100%
+  width 100%
+  -webkit-font-smoothing antialiased
+  font 13px "Helvetica Neue", "Helvetica", 'Lato', "Arial", sans-serif
+
+body
+  & > div
+    position relative
+    z-index 1
+    margin 0 auto
+
+footer
+  margin 50px 0
+
+ol
+ul
+  list-style none
+
+.paddingLeftFix
+  padding-left 26px
+
+.noPaddingRight
+  padding-right 0 !important
+.noPaddingLeft
+  padding-left 0 !important
+.noPadding
+  padding 0 !important
+.noMarginRight
+  margin-right 0 !important
+.noMarginLeft
+  margin-left 0 !important
+.noMargin
+  margin 0 !important
+
+.labelBlue
+  color darkblue
+.labelGray
+  color Gray
+.labelRed
+  color darkred
+
+.btn-group
+  margin-right 20px
+
+.envivo
+  a
+    color #f5f5f5 !important
+#elCambio
+  font-size 4em
+  font-weight bold
+  color darkblue
+
+.btn
+  .caret
+    margin-left 10px
+
+.mapListBtns
+  text-align center
+  position relative
+  .btn
+    margin 0 4px
+    font-size 15px
+
+.breadcrumb
+  padding 0 15px
+  font-size 18px
+
+.rowAvance
+.popupHeader
+  line-height 34px
+  box-shadow: 0 2px 1px -2px gray;
+  margin-left 0
+
+#lblAvance
+  font-size 18px
+  padding 6px 25px
+  margin-left -15px
+
+.panel-heading
+  font-weight bold
+
+button.btn
+  [class^=fa]::before
+    padding-right 8px
+    
+.mapContainer
+  margin-top 25px
+  .topRow
+    box-shadow 0 2px 2px -2px gray
+    margin: -20px -17px 10px -17px
+    padding 10px
+    height 55px
+  .row:first-child
+    line-height 35px
+
+h3.labelBlue
+h4.labelBlue
+h5.labelBlue
+h4.labelRed
+  font-weight bold
+
+.spanAvances
+  font-size 16px
+  span
+    padding 0 5px
+
+#map
+  min-height 600px
+  width 100%
+
+/*Map overrides*/
+.leaflet-popup-content-wrapper
+  border-radius 0
+
+.popupContainer
+  font-weight bold
+  width 300px
+  height 140px
+
+.filtrosAvanzados
+  text-transform: capitalize;
+
+.map-tile-loaded
+  animation-name fade-in
+  animation-timing-function linear
+  animation-duration .2s
+
+@-keyframes fade-in
+  from
+    opacity 0
+  to
+    opacity 0.7

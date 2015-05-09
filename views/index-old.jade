@@ -1,0 +1,88 @@
+extends layout
+
+mixin results(title, data)
+  .panel.panel-default.panel-primary
+    .panel-heading
+      h3.panel-title #{title}
+    .panel-body
+      p.data #{data}
+
+mixin palette(color)
+  li
+    span(style='#{color}')
+
+block content
+  //Header
+  nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+    .container-fluid
+      .navbar-header
+        a.navbar-brand(href='#') PREP DE MOVILIZACION DE LOS CABOS
+      .navbar-right
+        a.navbar-brand(href='#') Powered by Sistemas Najera
+
+  // Map
+  #todos.layers
+    a#layer-secciones.active-layer-top Todos los Partidos
+
+  #partidos.layers
+    a#layer-pan(href='#') PAN
+    .span4.collapse-group
+      .collapse
+        a#layer-cxm(href='#') Compromiso por M&eacute;xico (PRI, PVEM)
+        a#layer-mp(href='#') Movimiento Progresista (PRD, PT, MC)
+        a#layer-panal(href='#') PANAL
+        a#layer-pvem(href='#') PVEM
+        a#layer-pri(href='#') PRI
+        a#layer-prd(href='#') PRD
+        a#layer-pt(href='#') PT
+        a#layer-mc(href='#') MC
+      button.btn.btn-default.btn-primary Ver mas
+        i.glyphicon.glyphicon-chevron-up
+
+  #results
+    +results("Secciòn / Mza ", "666")
+    +results("Votantes", "100%")
+    +results("Jefe / C. de Mza o Sección", "Esperanza Najera")
+    +results("Celular", "612-123 4568")
+
+    .panel.panel-default.panel-primary
+      .panel-heading
+        h3.panel-title Tematización
+      .panel-body
+        .legend-partidos
+          ul.legend-labels
+            +palette('background:#b5e3b9;')
+            +palette('background:#7dcf85;')
+            +palette('background:#45ba51;')
+            +palette('background:#308238;')
+            +palette('background:#1c4A20;')
+          ul.legend-labels
+            +palette('background:#f5f3a3;')
+            +palette('background:#edeb5e;')
+            +palette('background:#e6e219;')
+            +palette('background:#a19e12;')
+            +palette('background:#5c5a0a;')
+          ul.legend-labels
+            +palette('background:#a8c8f0;')
+            +palette('background:#67a0e4;')
+            +palette('background:#2677d9;')
+            +palette('background:#1b5398;')
+            +palette('background:#0f2f57;')
+          ul.legend-labels
+            +palette('background:#a5f3f2;')
+            +palette('background:#61eae8;')
+            +palette('background:#1de2de;')
+            +palette('background:#159e9c;')
+            +palette('background:#0c5a59;')
+          ul.legend-labels.legend-labels-num
+            //li.legend-partido-label Nombre del partido
+            li &lt; 40%
+            li 40% - 55%
+            li 55% - 70%
+            li 70% - 85%
+            li &gt; 85%
+
+
+
+  div#map
+

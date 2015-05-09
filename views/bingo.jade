@@ -1,0 +1,127 @@
+extends layout
+
+block content
+   link(rel='stylesheet', href='/components/chosen/chosen.min.css')
+   link(rel='stylesheet', href='/css/bingo.css')
+   script(src="/components/chosen/chosen.jquery.min.js" type="text/javascript")
+   body
+      nav.navbar.navbar-default.navbar-static-top
+         .container-fluid
+            .navbar-header
+               a.navbar-brand(href='#')#elCambio.labelBlue ElCambio
+
+            .navbar-collapse.collapse
+               ul.nav.navbar-nav
+                  li.envivo.bg-primary
+                     a(href='#') EN VIVO
+               ul.nav.navbar-nav.navbar-right
+                  li.active
+                     a(href='#') LOGO
+
+      form(role="form")
+         .container
+            .row
+               .col-md-4
+                  .panel.panel-default
+                     .panel-heading
+                        h3 distrito
+                     .panel-body
+                        .form-group
+                           select#seccion(data-placeholder="Seleccionar distrito...")
+                              option(value='1') Distrito 1
+                              option(value='2') Distrito 2
+                              option(value='3') Distrito 3
+                              option(value='4') Distrito 4
+                              option(value='5') Distrito 5
+                              option(value='6') Distrito 6
+                              option(value='7') Distrito 7
+
+               .col-md-4
+                  .panel.panel-default
+                     .panel-heading
+                        h3 Sección
+                     .panel-body
+                        .form-group
+                           select#seccion(data-placeholder="Seleccionar sección...")
+                              option(value='1') Sección 1
+                              option(value='2') Sección 2
+                              option(value='3') Sección 3
+                              option(value='4') Sección 4
+                              option(value='5') Sección 5
+                              option(value='6') Sección 6
+                              option(value='7') Sección 7
+
+               .col-md-4
+                  .panel.panel-default
+                     .panel-heading
+                        h3 Casilla
+                     .panel-body
+                        .form-group
+                           select#casilla(data-placeholder="Seleccionar casilla...")
+                              option(value='A') Casilla A
+                              option(value='B') Casilla B
+                              option(value='C') Casilla C
+                              option(value='D') Casilla D
+                              option(value='E') Casilla E
+                              option(value='F') Casilla F
+                              option(value='G') Casilla G
+         .container-fluid
+            .row
+               .col-md-12
+                  .bingo
+
+         .panel.panel-default.reportes
+            .panel-heading
+               h4 Reportes
+                  span.fa.fa-file-pdf-o.pull-right
+            .panel-body
+               .block.r
+                  a(href="#") Completado
+                     span.fa.fa-download.pull-right
+               .block.nr
+                  a(href="#") Incompleto
+                     span.fa.fa-download.pull-right
+
+            //
+               .row
+                  .col-sm-12
+                     a.btn.btn-primary.r.btn-lg
+                        span.fa.fa-file-pdf-o
+                        | Completado
+               .row
+                  .col-sm-12
+                     a.btn.btn-primary.nr.btn-lg
+                        span.fa.fa-file-pdf-o
+                        | Incompleto
+
+         .panel.panel-default.filtros
+            .panel-heading
+               h4 Filtrar por
+            .panel-body
+               .radio.r
+                  label
+                     input(type='radio', name='filtro' value="true")
+                     | Completado
+               .radio.nr
+                  label
+                     input(type='radio', name='filtro' value="false")
+                     | Incompleto
+               .radio
+                  label
+                     input(type='radio', name='filtro' checked value="all")
+                     | Todos
+
+         .modal#numberDialog
+            .modal-dialog
+               .modal-content
+                  .modal-header
+                     button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true')
+                     h4.modal-title
+                  .modal-body
+                     .form-group
+                        input#txtCantidad.form-control.input-lg(type="text")
+                  .modal-footer
+                     h4 Presiona ENTER para avanzar al siguiente numero.
+
+   script(src="/js/bingo.js" type="text/javascript")

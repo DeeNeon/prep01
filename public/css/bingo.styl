@@ -1,0 +1,163 @@
+@import '../components/normalize.css/normalize.css'
+
+html,
+body
+  height 100%
+  width 100%
+  -webkit-font-smoothing antialiased
+  font 13px "Helvetica Neue", "Helvetica", 'Lato', "Arial", sans-serif
+
+body
+  & > div
+    position relative
+    z-index 1
+    margin 0 auto
+
+footer
+  margin 50px 0
+
+ol
+ul
+  list-style none
+
+.chosen-container
+  font-size 1.6em
+  width 100%!important
+  a.chosen-single
+    background none
+    height 50px
+    span
+      font-size 2em
+      line-height 1.2em
+    b
+      background-position-y 15px
+      background-size cover
+  .chosen-results
+    font-size 1.1em
+
+.chosen-container-active.chosen-with-drop
+  .chosen-single
+    div
+      b
+        background-position -25px 15px
+
+h3
+  font-weight bold
+  text-transform uppercase
+  letter-spacing 10px
+
+.envivo
+  a
+    color #f5f5f5 !important
+
+#elCambio
+  font-size 4em
+  font-weight bold
+  color darkblue
+
+.bingo
+  display flex
+  flex-flow row wrap
+  justify-content space-around
+
+.ready
+  background-color rgb(33,113,226)
+
+.notReady
+  background-color rgb(132,133,139)
+
+.r
+  background-color rgb(33,113,226)
+
+.nr
+  background-color rgb(132,133,139)
+
+
+
+.circle
+  margin 10px 10px
+  border-radius 50%
+  width 70px
+  position relative
+  &:before
+    content ""
+    display block
+    padding-top 100%
+
+.circle-border
+  border 1px solid black
+
+.circle-solid
+  background-color whitesmoke
+
+.circle-inner
+  position absolute
+  top 0
+  left 0
+  bottom 0
+  right 0
+  text-align center
+
+.circle-text
+  color white
+  font-weight 700
+  margin auto
+  position absolute
+  top 0
+  left 0
+  bottom 0
+  right 0
+  height: 3vw
+  line-height 3vw
+  font-size 1vw
+
+.circle
+  .circle-inner.selected::after
+    content '['
+    font-size: 6em;
+    left: -17px;
+    top: -18px;
+    position: absolute;
+    color: darkslateblue;
+
+  .circle-inner.selected::before
+    content ']'
+    font-size: 6em;
+    left: 65px;
+    top: -18px;
+    position: absolute;
+    color: darkslateblue;
+
+.filtros
+.reportes
+  display none
+  width 160px
+  height 174px
+  position absolute
+  top 72px
+  right 200px
+  font-size 18px
+
+.reportes
+  width 280px
+  display inline-block
+  left 15px
+  .panel-body
+    padding 0
+    a
+      display block
+      color white
+      text-decoration none
+      padding 5%
+      font-size 26px
+
+  .fa-file-pdf-o
+    padding-right 15px
+  .block
+    box-shadow inset 0 0 3px #000000
+    height 56px
+    &:hover
+      opacity .8
+
+
+

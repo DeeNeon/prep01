@@ -1,0 +1,164 @@
+extends layout
+
+
+block content
+    script(src="/components/leaflet/dist/leaflet.js" type="text/javascript")
+    link(rel='stylesheet', href='/components/leaflet/dist/leaflet.css')
+
+    link(rel='stylesheet', href='/css/style.css')
+    body
+        nav.navbar.navbar-default.navbar-static-top
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand(href='#')#elCambio.labelBlue ElCambio
+
+                .navbar-collapse.collapse
+                    ul.nav.navbar-nav
+                        li.envivo.bg-primary
+                            a(href='#') EN VIVO
+
+                    ul.nav.navbar-nav.navbar-right
+                        li.active
+                            a(href='#') LOGO
+
+        .container-fluid
+
+            //Filtros
+            .row
+                .col-md-10
+                    .panel.panel-default
+                        .panel-heading.labelBlue Filtrar por
+                        .panel-body
+                            .filters
+                                .btn-group
+                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Municipio
+                                        span.caret
+                                    ul.dropdown-menu(role='menu')
+                                        li
+                                            a(href='#') Los Cabos
+                                        li
+                                            a(href='#') La Paz
+                                        li
+                                            a(href='#') Comondu
+                                .btn-group
+                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Distrito
+                                        span.caret
+                                    ul.dropdown-menu(role='menu')
+                                        li
+                                            a(href='#') ABC
+                                        li
+                                            a(href='#') ABC
+                                        li
+                                            a(href='#') ABC
+                                .btn-group
+                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Zona
+                                        span.caret
+                                    ul.dropdown-menu(role='menu')
+                                        li
+                                            a(href='#') Zona 1
+                                        li
+                                            a(href='#') Zona 2
+                                        li
+                                            a(href='#') Zona 3
+                                .btn-group
+                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Secciòn
+                                        span.caret
+                                    ul.dropdown-menu(role='menu')
+                                        li
+                                            a(href='#') Secc 1
+                                        li
+                                            a(href='#') Secc 2
+                                        li
+                                            a(href='#') Sec 3
+                .col-md-2.noPadding
+                    .panel.panel-default.filtrosAvanzados
+                        .panel-heading 99% de avance
+                        .panel-body.center
+                            a.btn.btn-default(href='#', role='button') filtros avanzados
+
+            //Breadcrumbs - map,list
+            .row.rowAvance
+                .col-md-1
+                    span.bg-primary#lblAvance Avance
+
+                .col-md-9
+                    ol.breadcrumb
+                        li
+                            a(href='#') Distrito 8
+                        li
+                            a(href='#') Zona 16
+                        li.active Seccion 666
+
+                .col-md-2
+                    .mapListBtns
+                        button.btn.btn-info
+                            i.fa.fa-map-marker Map
+                        button.btn.btn-info
+                            i.fa.fa-list List
+
+            //Map
+            .mapContainer
+                .row
+                    .col-md-4
+                        .panel.panel-default
+                            .panel-body
+                                //< >
+                                .topRow
+                                    .row.noMarginRight
+                                        .col-sm-2
+                                            a(href="#").btn.btn-default
+                                                i.fa.fa-angle-left
+                                        .col-sm-8.text-center
+                                            label Casilla 332B
+                                        .col-sm-2.paddingLeftFix
+                                            a(href="#").btn.btn-default
+                                                i.fa.fa-angle-right
+
+                                .row
+                                    .col-sm-12.text-center
+                                        h3.labelBlue AVANCE DE VOTACION
+                                        .text-info.spanAvances
+                                            span#avanceActual 69
+                                            | de
+                                            span#avanceTotal 999
+                                            span#avancePorcentaje 25%
+
+                                .row
+                                    .col-sm-12
+                                        .progress
+                                            .progress-bar(role='progressbar', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100', style='width: 25%;')
+                                                span.sr-only 25% Complete
+
+                                .row
+                                    .col-sm-8
+                                        h4.labelBlue Promovidos
+                                    .col-sm-4
+                                        h4.labelBlue#promovidosPorcentaje 25%
+
+                                .row
+                                    .col-sm-8
+                                        h5.labelGray TOTAL
+                                    .col-sm-4
+                                        h5.labelGray#totalPromovidos 160 de 360
+
+                                .row
+                                    .col-sm-12
+                                        .progress
+                                            .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='15', aria-valuemin='0', aria-valuemax='100', style='width: 15%;')
+                                                span.sr-only 15% Complete
+
+                                .row
+                                    .col-sm-8
+                                        h4.labelRed No Promovidos
+                                    .col-sm-4
+                                        h4.labelRed#noPromovidosPorcentaje 15%
+
+                                .row
+                                    .col-sm-8
+                                        h5.labelGray TOTAL
+                                    .col-sm-4
+                                        h5.labelGray#totalPromovidos 45 de 380
+
+                    .col-md-8
+                        #map
+    script(src="/js/app.js" type="text/javascript")
