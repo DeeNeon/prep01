@@ -67,7 +67,18 @@ block content
                               option(value='G') Casilla G
          .container-fluid
             .row
-               .col-md-12
+               .col-md-2
+                  .panel.panel-default.log
+                     .panel-heading
+                        h4 Registro
+                        a(href="" title="Borrar todo").btn.btn-default.pull-right#clearLog
+                           span.fa.fa-trash
+                     .panel-body.logBody
+                        .alert.alert-info(role="alert")
+                           strong Sin registros...
+                           span.fa.fa-times.removeItem
+
+               .col-md-9
                   .bingo
 
          .panel.panel-default.reportes
@@ -81,18 +92,6 @@ block content
                .block.nr
                   a(href="#") Incompleto
                      span.fa.fa-download.pull-right
-
-            //
-               .row
-                  .col-sm-12
-                     a.btn.btn-primary.r.btn-lg
-                        span.fa.fa-file-pdf-o
-                        | Completado
-               .row
-                  .col-sm-12
-                     a.btn.btn-primary.nr.btn-lg
-                        span.fa.fa-file-pdf-o
-                        | Incompleto
 
          .panel.panel-default.filtros
             .panel-heading
@@ -122,6 +121,8 @@ block content
                      .form-group
                         input#txtCantidad.form-control.input-lg(type="text")
                   .modal-footer
-                     h4 Presiona ENTER para avanzar al siguiente numero.
+                     h4 Presiona ENTER para avanzar al siguiente número.
+
+
 
    script(src="/js/bingo.js" type="text/javascript")

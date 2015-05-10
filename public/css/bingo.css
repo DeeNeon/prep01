@@ -62,6 +62,7 @@ h3 {
   background-color: #2171e2;
 }
 .notReady {
+  cursor: pointer;
   background-color: #84858b;
 }
 .r {
@@ -135,7 +136,7 @@ h3 {
   font-size: 18px;
 }
 .reportes {
-  width: 280px;
+  width: 290px;
   display: inline-block;
   left: 15px;
 }
@@ -158,4 +159,24 @@ h3 {
 }
 .reportes .block:hover {
   opacity: 0.8;
+}
+.log h4 {
+  display: inline-block;
+}
+.log .panel-body {
+  padding: 0;
+}
+.log .alert {
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 0;
+}
+.log .alert .removeItem {
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.log .alert .removeItem:hover {
+  transform: scale(1.4);
 }
