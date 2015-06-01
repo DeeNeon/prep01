@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var sql = require('mssql');
 
 var routes = require('./routes/index');
 
@@ -24,9 +25,46 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-app.use('/bingo', function(req, res, next) {
+/*app.use('/bingo', function(req, res, next) {
   res.render('bingo', { title: 'Bingo' });
-});
+});*/
+
+/*===================*/
+app.use('/service', getData);
+
+function getData(req, res, next)
+{
+  res.header("content-type: application/json");
+  var id = req.params.id;
+  var data = [];
+  //res.send('select * from seccion_poligono where id = '+id);
+
+  var config = {
+    user: 'loscabos',
+    password: 'csl2015',
+    server: 'cartosina.com',
+    database: 'cabo',
+    stream: false, // You can enable streaming globally
+    options: {
+      encrypt: false // Use this if you're on Windows Azure
+    }
+  };
+
+  var connection = new sql.Connection(config, function(err) {
+    // error checks
+    if (err) {
+      data = "cannot open connection!";
+      return;
+    }
+
+    // Query
+    var request = new sql.Request(connection); // or: var request = connection.request();
+    request.query('select top 10 * from seccion_poligono', function (err, recordset) {
+      res.json(recordset);
+    });
+  });
+}
+/*===============*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -61,3 +99,7 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+
+
+

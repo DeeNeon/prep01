@@ -112,7 +112,7 @@ $(function() {
 
     function notifications(isOk, cant, bingo, casilla){
         var alertClass = isOk ? 'success' : 'danger',
-            msg = isOk ? 'Se guardó ' : 'Erorr al guardar ',
+            msg = isOk ? 'Se guardó ' : 'Error al guardar ',
             infoElem = $('.alert-info');
 
         if(infoElem.length) $('.alert-info').remove();
