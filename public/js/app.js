@@ -101,8 +101,8 @@ var App = (function(self){
         $('body').on('click','.dropdown-menu li a', self.dropdownClick);
 
         self.initMap();
-        self.loadSecciones();
-        self.loadDistritos();
+        //self.loadSecciones();
+        //self.loadDistritos();
         //self.loadPoligonos();
 
         return self;
