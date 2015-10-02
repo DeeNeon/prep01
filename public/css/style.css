@@ -18,6 +18,9 @@ ol,
 ul {
   list-style: none;
 }
+span.select2 {
+  width: 200px !important;
+}
 .paddingLeftFix {
   padding-left: 26px;
 }
@@ -130,6 +133,9 @@ h4.labelRed {
 }
 .filtrosAvanzados {
   text-transform: capitalize;
+}
+.filtrosAvanzados a {
+  width: 100%;
 }
 .map-tile-loaded {
   animation-name: fade-in;

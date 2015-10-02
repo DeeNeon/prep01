@@ -29,46 +29,13 @@ block content
                         .panel-heading.labelBlue Filtrar por
                         .panel-body
                             .filters
-                                .btn-group
-                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Municipio
-                                        span.caret
-                                    ul.dropdown-menu(role='menu')
-                                        li
-                                            a(href='#') Los Cabos
-                                        li
-                                            a(href='#') La Paz
-                                        li
-                                            a(href='#') Comondu
-                                .btn-group
-                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Distrito
-                                        span.caret
-                                    ul.dropdown-menu(role='menu')
-                                        li
-                                            a(href='#') ABC
-                                        li
-                                            a(href='#') ABC
-                                        li
-                                            a(href='#') ABC
-                                .btn-group
-                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Zona
-                                        span.caret
-                                    ul.dropdown-menu(role='menu')
-                                        li
-                                            a(href='#') Zona 1
-                                        li
-                                            a(href='#') Zona 2
-                                        li
-                                            a(href='#') Zona 3
-                                .btn-group
-                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Secciòn
-                                        span.caret
-                                    ul.dropdown-menu(role='menu')
-                                        li
-                                            a(href='#') Secc 1
-                                        li
-                                            a(href='#') Secc 2
-                                        li
-                                            a(href='#') Sec 3
+                                .row
+                                    .col-sm-3
+                                        input(type="hidden")#distritos
+
+                                    .col-sm-3
+                                        input(type="hidden")#secciones
+
                 .col-md-2.noPadding
                     .panel.panel-default.filtrosAvanzados
                         .panel-heading 99% de avance
@@ -160,4 +127,4 @@ block content
 
                     .col-md-8
                         #map
-    script(src="/js/app.js" type="text/javascript")
+        script(src="/js/app.js" type="text/javascript")

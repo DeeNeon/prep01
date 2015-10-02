@@ -29,26 +29,22 @@ app.use('/', routes);
   res.render('bingo', { title: 'Bingo' });
 });*/
 
+//DB params
+var config = {
+  user: 'loscabos',
+  password: 'csl2015',
+  server: 'cartosina.com',
+  database: 'cabo',
+  options: {
+    encrypt: false
+  }
+};
 /*===================*/
-app.use('/service', getData);
-
-function getData(req, res, next)
+app.use('/service/poligonos/:id_seccion', getPoligonos);
+function getPoligonos(req, res, next)
 {
   res.header("content-type: application/json");
-  var id = req.params.id;
   var data = [];
-  //res.send('select * from seccion_poligono where id = '+id);
-
-  var config = {
-    user: 'loscabos',
-    password: 'csl2015',
-    server: 'cartosina.com',
-    database: 'cabo',
-    stream: false, // You can enable streaming globally
-    options: {
-      encrypt: false // Use this if you're on Windows Azure
-    }
-  };
 
   var connection = new sql.Connection(config, function(err) {
     // error checks
@@ -59,7 +55,52 @@ function getData(req, res, next)
 
     // Query
     var request = new sql.Request(connection); // or: var request = connection.request();
-    request.query('select top 10 * from seccion_poligono', function (err, recordset) {
+    request.query('select poligon from seccion_poligono where seccion = ' + req.params.id_seccion, function (err, recordset) {
+      res.json(recordset);
+    });
+  });
+}
+/*===============*/
+
+/*====== secciones ========*/
+app.use('/service/seccion/:id_distrito', getSecciones);
+function getSecciones(req, res, next)
+{
+  res.header("content-type: application/json");
+  var data = [];
+  var connection = new sql.Connection(config, function(err) {
+    // error checks
+    if (err) {
+      data = "cannot open connection!";
+      return;
+    }
+
+    // Query
+    var request = new sql.Request(connection); // or: var request = connection.request();
+    request.query('select distinct seccion from seccion_poligono where distritolocal = '+req.params.id_distrito, function (err, recordset) {
+      res.json(recordset);
+    });
+  });
+}
+/*===============*/
+
+/*====== distritos ========*/
+app.use('/service/distritos', getDistrito);
+function getDistrito(req, res, next)
+{
+  res.header("content-type: application/json");
+  //var id = req.params.id;
+  var data = [];
+  var connection = new sql.Connection(config, function(err) {
+    // error checks
+    if (err) {
+      data = "cannot open connection!";
+      return;
+    }
+
+    // Query
+    var request = new sql.Request(connection); // or: var request = connection.request();
+    request.query('select distinct distritolocal from seccion_poligono', function (err, recordset) {
       res.json(recordset);
     });
   });
