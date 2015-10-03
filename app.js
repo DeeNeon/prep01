@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var sql = require('mssql');
+//var sql = require('mssql');
 
 var routes = require('./routes/index');
 
@@ -25,11 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-/*app.use('/bingo', function(req, res, next) {
+app.use('/bingo', function(req, res, next) {
   res.render('bingo', { title: 'Bingo' });
-});*/
+});
 
-//DB params
+/*//DB params
 var config = {
   user: 'loscabos',
   password: 'csl2015',
@@ -38,9 +38,9 @@ var config = {
   options: {
     encrypt: false
   }
-};
+};*/
 /*===================*/
-app.use('/service/poligonos/:id_seccion', getPoligonos);
+/*app.use('/service/poligonos/:id_seccion', getPoligonos);
 function getPoligonos(req, res, next)
 {
   res.header("content-type: application/json");
@@ -59,10 +59,10 @@ function getPoligonos(req, res, next)
       res.json(recordset);
     });
   });
-}
+}*/
 /*===============*/
 
-/*====== secciones ========*/
+/*====== secciones ========*//*
 app.use('/service/seccion/:id_distrito', getSecciones);
 function getSecciones(req, res, next)
 {
@@ -81,10 +81,10 @@ function getSecciones(req, res, next)
       res.json(recordset);
     });
   });
-}
+}*/
 /*===============*/
 
-/*====== distritos ========*/
+/*====== distritos ========*//*
 app.use('/service/distritos', getDistrito);
 function getDistrito(req, res, next)
 {
@@ -104,7 +104,7 @@ function getDistrito(req, res, next)
       res.json(recordset);
     });
   });
-}
+}*/
 /*===============*/
 
 // catch 404 and forward to error handler
